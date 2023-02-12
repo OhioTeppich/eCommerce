@@ -8,10 +8,8 @@ class AppRouter {
     log('This is route: $settings');
 
     switch (settings.name) {
-      case '/':
-        return HomeScreen.route();
-/*       case HomeScreen.routeName:
-        return HomeScreen.route(); */
+       case HomeScreen.routeName:
+        return HomeScreen.route(); 
       case CartScreen.routeName:
         return CartScreen.route();
       case WishlistScreen.routeName:
