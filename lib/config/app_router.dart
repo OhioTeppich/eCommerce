@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:ecommerce/models/models.dart';
 import 'package:ecommerce/screens/screens.dart';
 import 'package:flutter/material.dart';
 
@@ -8,8 +9,8 @@ class AppRouter {
     log('This is route: $settings');
 
     switch (settings.name) {
-       case HomeScreen.routeName:
-        return HomeScreen.route(); 
+      case HomeScreen.routeName:
+        return HomeScreen.route();
       case CartScreen.routeName:
         return CartScreen.route();
       case WishlistScreen.routeName:
@@ -17,7 +18,7 @@ class AppRouter {
       case ProductScreen.routeName:
         return CartScreen.route();
       case CatalogScreen.routeName:
-        return CartScreen.route();
+        return CatalogScreen.route(category: settings.arguments as Category);
       default:
         return _errorRoute();
     }

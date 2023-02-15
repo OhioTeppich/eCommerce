@@ -4,9 +4,11 @@ import '../models/models.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
+  final double widthFactor;
   const ProductCard({
     super.key,
     required this.product,
+    this.widthFactor = 2.5,
   });
 
   @override
@@ -14,7 +16,7 @@ class ProductCard extends StatelessWidget {
     return Stack(
       children: [
         SizedBox(
-          width: MediaQuery.of(context).size.width / 2.5,
+          width: MediaQuery.of(context).size.width / widthFactor,
           height: 150,
           child: Image.network(
             product.imageUrl,
@@ -58,7 +60,7 @@ class ProductCard extends StatelessWidget {
                               .copyWith(color: Colors.white),
                         ),
                         Text(
-                          '€${Product.products[0].price}',
+                          '€${product.price}',
                           style: Theme.of(context)
                               .textTheme
                               .titleLarge!
