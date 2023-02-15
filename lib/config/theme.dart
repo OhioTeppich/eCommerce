@@ -26,7 +26,7 @@ TextTheme textTheme() {
     displaySmall: TextStyle(
       color: Colors.black,
       fontSize: 18,
-      fontWeight: FontWeight.bold,
+      fontWeight: FontWeight.normal,
     ),
     //4
     headlineMedium: TextStyle(
