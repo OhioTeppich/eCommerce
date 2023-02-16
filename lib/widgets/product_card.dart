@@ -5,10 +5,15 @@ import '../models/models.dart';
 class ProductCard extends StatelessWidget {
   final Product product;
   final double widthFactor;
+  final double leftPostition;
+  final bool isWishlist;
+
   const ProductCard({
     super.key,
     required this.product,
+    this.leftPostition = 5,
     this.widthFactor = 2.5,
+    this.isWishlist = false,
   });
 
   @override
@@ -33,8 +38,11 @@ class ProductCard extends StatelessWidget {
           ),
           Positioned(
             top: 60,
+            left: leftPostition,
             child: Container(
-              width: MediaQuery.of(context).size.width / 2.5,
+              width: MediaQuery.of(context).size.width / widthFactor -
+                  10 -
+                  leftPostition,
               height: 80,
               decoration: BoxDecoration(
                 color: Colors.black.withAlpha(50),
@@ -43,9 +51,11 @@ class ProductCard extends StatelessWidget {
           ),
           Positioned(
             top: 65,
-            left: 5,
+            left: leftPostition + 5,
             child: Container(
-              width: MediaQuery.of(context).size.width / 2.5 - 10,
+              width: MediaQuery.of(context).size.width / widthFactor -
+                  20 -
+                  leftPostition,
               height: 70,
               decoration: const BoxDecoration(
                 color: Colors.black,
@@ -85,7 +95,18 @@ class ProductCard extends StatelessWidget {
                           color: Colors.white,
                         ),
                       ),
-                    )
+                    ),
+                    isWishlist
+                        ? Expanded(
+                            child: IconButton(
+                              onPressed: () {},
+                              icon: const Icon(
+                                Icons.delete,
+                                color: Colors.white,
+                              ),
+                            ),
+                          )
+                        : SizedBox()
                   ],
                 ),
               ),
